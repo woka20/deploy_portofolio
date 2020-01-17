@@ -1,0 +1,30 @@
+db.books.aggregate([{$lookup:{
+    from:"authors",
+    localField:"authorID",
+    foreignField:"_id",
+    as:"author"}},{$unwind:"$author"},{
+        $lookup:{
+            from:"publishers",
+            localField:"publisherID",
+            foreignField:"_id", 
+            as:"publisher"}},{$unwind:"$publisher"},{
+        $project:{
+            title:1,
+            price:1,
+            publisher:{$concat:["$publisher.publisherName"]},
+            author: {$concat:["$author.firstName"," ","$author.lastName"]}}}]).pretty()
+
+
+
+"devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^1.7.0"
+  }
+    
+    
+    
+   

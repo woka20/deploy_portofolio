@@ -11,3 +11,116 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Register, .SignIn{
+   width: 400px;
+   margin: 0 auto;
+   padding-top: 30px;
+}
+
+h2{
+  text-align: center;
+  padding-top: 30px;
+}
+
+.search-bar{
+  padding-left: 150px;
+  
+}
+
+.description{
+
+  overflow: auto;
+  height: 50px;
+
+}
+
+.product-admin{
+  height: 50px;
+}
+
+.catalog-list{
+  display: inline;
+  float: left;
+  margin-right: 20px;
+  margin-top:30px;
+  height: 100px;
+  
+}
+
+.UpdateForm{
+  padding-top: 3px;
+
+}
+
+.update-title{
+  text-align: center;
+}
+
+.profile-img{
+  width:100px;
+  height:100px;
+}
+
+.profile-container{
+  margin-top:30px;
+  margin-left: 150px;
+}
+
+.product-images{
+  margin-left: 200px;
+  height:430px;
+  width:420px;
+}
+
+.catalog-images{
+  height:200px;
+  width:350px;
+}
+
+.Cart{
+  padding-top:40px;
+}
+
+h4{
+  color: red;
+}
+.footer{
+  padding-left: 360px;
+}
+.error{
+  width: 100%;
+  position:absolute;
+}
+.not-found{
+  float: right;
+  position: relative;
+  color: #ffffff;
+  margin-right:530px;
+  margin-top: 50px;
+}
+
+.not-found1{
+  float: right;
+  position: relative;
+  color: #ffffff;
+  margin-right:650px;
+  margin-top: 170px;
+}
+.lowBar{
+  margin-top:10px;
+}
+
+.product-img{
+  margin-left: 100px;
+  height:430px;
+  width:420px;
+}
+
+.product-catalog{
+  padding-bottom: 300px;
+}
+
+.catalog-search{
+  padding-bottom:50px;
+}
