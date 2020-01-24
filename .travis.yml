@@ -27,7 +27,7 @@ script:
 - npm run build
 # - npm run test
 after_success:
-# - npm run coverage
+# - npm run coverage no
 
 deploy:
 - provider: script
