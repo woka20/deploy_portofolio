@@ -87,7 +87,7 @@ export const actions = store =>({
                 reader.onload = () => {
                         store.setState({ payment: reader.result})
                         // store.setState({ payment: reader.result.replace("data:image/jpeg;base64,", "")})
-                        console.log("^&*((", reader.result)
+                       
           } 
         },
 

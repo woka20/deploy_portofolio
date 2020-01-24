@@ -45,12 +45,11 @@ class AdminToUser extends React.Component{
     updateUserPayment = async ()=>{
             const inputs={
                         payment: this.props.payment,
-                        id:this.props.order_id
+                        id:this.props.id_order
                         
                     }
                 
                 const active_item=this.props.active_cart_id
-                console.log("PPPPPP", active_item)
              
                 const req = {method: "put",
                             url: `http://localhost:5000/shop/checkout`,
@@ -61,7 +60,7 @@ class AdminToUser extends React.Component{
                 await axios(req)
                 .then((response)=>{
                 alert("Payment Status Succesfully Updated")
-                this.props.history.push("/dashboardedituser")
+                this.props.history.push("/")
                                 
                 })
                 .catch((error)=>alert(error))    
@@ -102,7 +101,7 @@ class AdminToUser extends React.Component{
                     
                     <Form.Group>
                         <Form.Label>ID Produk</Form.Label>
-                        <Form.Control type="text" name="order_id" onChange={event=>this.props.handleSetGlobal(event)}/>
+                        <Form.Control type="text" name="id_order" onChange={event=>this.props.handleSetGlobal(event)}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Status Pembayaran</Form.Label>
@@ -119,5 +118,5 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUser, payment,details_cart, order_id, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUser, payment,details_cart, id_order, active_cart_id",actions)(withRouter(AdminToUser))
 

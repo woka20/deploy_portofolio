@@ -20,7 +20,7 @@ class SignIn extends React.Component{
     signIn = async ()=>{
 
         const req = {method: "get",
-                    url: "http://localhost:5000/login",
+                    url: "https://gundam-woka.my.id/login",
                     params: {"client_name": this.props.username,
                             "client_password":this.props.password}
                     };
