@@ -1,9 +1,6 @@
-import React,{useEffect}from 'react'
-import {store} from "../store"
-import {withRouter} from "react-router-dom";
-import {connect} from "unistore/react";
+import React from 'react'
 import NavBar from "../components/navBar"
-import {Container, Carousel,Row, Form, Button, ListGroup, Image, useAccordionToggle} from 'react-bootstrap';
+import {Carousel} from 'react-bootstrap';
 import banner1 from "../images/banner1.jpg"
 import banner2 from "../images/banner2.jpg"
 import banner3 from "../images/banner3.jpg"

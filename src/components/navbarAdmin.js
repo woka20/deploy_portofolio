@@ -1,10 +1,9 @@
 import React from 'react'
-import {actions, store} from "../store"
+import {actions} from "../store"
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import logo from "../images/logo.png"
-import {Navbar, Dropdown,Custom,Nav, FormControl, Container, Row, Form, Button, ListGroup, Image} from 'react-bootstrap';
-import axios from 'axios'
+import {Navbar,Nav} from 'react-bootstrap';
 
 class NavAdmin extends React.Component{
     navigation = menu =>{

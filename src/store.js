@@ -1,5 +1,4 @@
 import createStore from 'unistore'
-import React from 'react'
 import axios from 'axios'
 
 
@@ -27,7 +26,6 @@ const initialState={
         etc:[],
         cart:[],
         dashboard:[],
-        qty:[1,2,3],
         courier:["jne","pos","tiki"],
         user_id:0,
         nama_produk: "",
@@ -44,7 +42,6 @@ const initialState={
         profile:[],
         nama:"",
         alamat:"",
-        telp:"",
         payment:"",
         id_order:0,
         profile_img:"https://elysator.com/wp-content/uploads/blank-profile-picture-973460_1280-300x300.png",
@@ -57,8 +54,6 @@ const initialState={
 
 const secondState={
         cart:[],
-        qty:[1,2,3],
-        courier:["jne","pos","tiki"],
         user_id:0,
         nama_produk: "",
         category: "",
@@ -116,7 +111,6 @@ export const actions = store =>({
                                 return item
                         }
                 })
-                
                 store.setState({linkProduk:searches})
           
         },

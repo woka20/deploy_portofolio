@@ -1,9 +1,9 @@
-import React,{useEffect}from 'react'
+import React from 'react'
 import {store,store_product, actions} from "../store"
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import NavigationBar from "../components/navBar"
-import {Container, Row, Form,Table, Button, ListGroup, Image, useAccordionToggle} from 'react-bootstrap';
+import {Table, Button} from 'react-bootstrap';
 import axios from 'axios'
 
 class Products extends React.Component{
