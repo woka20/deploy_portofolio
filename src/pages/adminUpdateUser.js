@@ -53,15 +53,15 @@ class AdminToUser extends React.Component{
                 console.log("PPPPPP", active_item)
              
                 const req = {method: "put",
-                            url: `http://localhost:5000/shop/confirm/${active_item}`,
+                            url: `http://localhost:5000/shop/checkout`,
                             headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
                             data:inputs
             
                             };
                 await axios(req)
                 .then((response)=>{
-                alert("Product Successfully Updated")
-                this.props.history.push("/Dashboard")
+                alert("Payment Status Succesfully Updated")
+                this.props.history.push("/dashboardedituser")
                                 
                 })
                 .catch((error)=>alert(error))    
@@ -102,15 +102,11 @@ class AdminToUser extends React.Component{
                     
                     <Form.Group>
                         <Form.Label>ID Produk</Form.Label>
-                        <Form.Control type="text" name="nama_produk" onChange={event=>this.props.handleSetGlobal(event)}/>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Label>Harga</Form.Label>
-                        <Form.Control type="text" name="category" onChange={event=>this.props.handleSetGlobal(event)}/>
+                        <Form.Control type="text" name="order_id" onChange={event=>this.props.handleSetGlobal(event)}/>
                     </Form.Group>
                     <Form.Group>
                         <Form.Label>Status Pembayaran</Form.Label>
-                        <Form.Control type="text" name="harga" onChange={event=>this.props.handleSetGlobal(event)}/>
+                        <Form.Control type="text" name="payment" onChange={event=>this.props.handleSetGlobal(event)}/>
                     </Form.Group>
                     <Button variant="outline-info" type="submit" onClick={() => this.updateUserPayment()}>
                     Update Product</Button>

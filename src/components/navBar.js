@@ -97,7 +97,7 @@ categoryFunc= async(value)=>{
 
     render(){
         const auth = localStorage.getItem("isLogin")? ["Home", "Profile", "Product", "Checkout", "Dashboard", "Logout"]
-            : ["Home", "Product", "Login","Register"]
+            : ["Home", "Bambang", "Login","Register"]
         const authMenu = auth.map(authElement => {
             return (
                 <Nav.Link onClick={() => this.navigation(authElement)}>
