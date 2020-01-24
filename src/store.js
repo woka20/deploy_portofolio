@@ -2,7 +2,9 @@ import createStore from 'unistore'
 import React from 'react'
 import axios from 'axios'
 
+
 const initialState={
+        active_cart_id:0,
         listUser:[],
         qty:[1,2,3],
         courier:["jne","pos","tiki"],
@@ -46,7 +48,9 @@ const initialState={
         payment:"",
         id_order:0,
         profile_img:"https://elysator.com/wp-content/uploads/blank-profile-picture-973460_1280-300x300.png",
-        search_res:[]
+        search_res:[],
+        confirm_pay:"",
+        details_cart:[]
     
 }
 
@@ -80,8 +84,16 @@ export const actions = store =>({
                 
         },
 
-        handleSetGlobalProduct: (state, event) => {
-                store_product.setState({ [event.target.name]: event.target.value });
+        handleFileUpload: (state, event) => {
+                let reader = new FileReader()
+                const file=event.target.files[0]
+                
+                reader.readAsDataURL(file)
+                reader.onload = () => {
+                        store.setState({ payment: reader.result})
+                        // store.setState({ payment: reader.result.replace("data:image/jpeg;base64,", "")})
+                        console.log("^&*((", reader.result)
+          } 
         },
 
         searchFunc: async(state)=>{

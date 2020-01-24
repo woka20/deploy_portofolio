@@ -21,7 +21,11 @@ import DashboardUpdateUser from "../pages/DashBoardUserUpdate"
 import EditProfile from "../pages/editProfile"
 import Search from "../pages/searchPages"
 import Category from "../pages/Category.js"
-import NotMatch from "../pages/notMatch" 
+import NotMatch from "../pages/notMatch"
+import Confirmation from "../pages/paymentConfirmation"
+import ProfileAdmin from "../pages/ProfileAdmin"
+import AdminUpdateUser from "../pages/adminUpdateUser"
+import DashboardEditUser from "../pages/DashboardEditUser"
 
 class MainRoute extends React.Component {
     render(){
@@ -46,6 +50,10 @@ class MainRoute extends React.Component {
                         <Route exact path="/DashboardUpdateUser" component={DashboardUpdateUser} />
                         <Route exact path="/editProfile" component={EditProfile} />
                         <Route exact path="/searchPages" component={Search} />
+                        <Route exact path="/confirmation" component={Confirmation} />
+                        <Route exact path="/ProfileAdmin" component={ProfileAdmin} />
+                        <Route exact path="/adminUpdateUser" component={AdminUpdateUser} />
+                        <Route exact path="/DashboardEditUser" component={DashboardEditUser} />
                         <Route exact path="/category/:category" component={Category} />
                         <Route component={NotMatch}/>
                         

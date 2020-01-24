@@ -9,12 +9,13 @@ import NavigationBar from "../components/navBar"
 
 class Category extends React.Component{
     render(){
-        const daftar_produk=this.props.search_res.map(item=>{
-            return item
+        const daftarCategory=[]
+        this.props.search_res.map(item=>{
+            daftarCategory.push(item)
         })
         return (<React.Fragment>
                  <NavigationBar />
-                 {daftar_produk.map(item=>(
+                 {daftarCategory.map(item=>(
                  <Card className="catalog-list" onSubmit={event => event.preventDefault()} style={{ width: '18rem' }}>
                      <Card.Img variant="top" src={item.gambar} />
                      <Card.Body>

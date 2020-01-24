@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app
+  namespace: alta20
+  annotations:
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+    # service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:419412945238:certificate/b13eb25c-3a8b-4650-9dfc-79c39c6ef327
+    # service.beta.kubernetes.io/aws-load-balancer-ssl-negotiation-policy: "ELBSecurityPolicy-TLS-1-2-2017-01"
+    # service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    # service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: "env=staging,group=alta,project=alta-demo,sub-project=app"
+spec:
+  selector:
+    name: app
+  type: LoadBalancer
+  ports:
+   -  name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80

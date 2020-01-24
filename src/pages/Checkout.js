@@ -32,7 +32,7 @@ class Checkout extends React.Component{
             store.setState({checkout:response.data.Product, etc:response.data})
         
     }
-    ).catch((error)=>alert(error))
+    ).catch((error)=>console.log(error))
 }
 
    
@@ -40,6 +40,7 @@ class Checkout extends React.Component{
         this.checkLogin()
         const checkout=this.props.checkout
         const etc=this.props.etc
+        console.log("LLLLL",etc)
         // const everthingProduct=Object.values(checkout).filter(item =>{
         //     if (item.id===this.props.etc.product_id){
         //         return item
@@ -79,7 +80,7 @@ class Checkout extends React.Component{
                             </tr>
                             
                     </tbody> 
-                    <Button variant="primary">Konfirmasi Pembayaran</Button>
+                    <Button variant="primary" onClick={()=>this.props.history.push("/confirmation")}>Konfirmasi Pembayaran</Button>
                 </Table> 
 
                      </Col>

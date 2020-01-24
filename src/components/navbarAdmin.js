@@ -27,7 +27,7 @@ class NavAdmin extends React.Component{
     }
 
     render(){
-        const auth = localStorage.getItem("isLogin")? ["Home", "Product", "Logout"]
+        const auth = localStorage.getItem("isLogin")? ["Home", "Product", "Edit Users", "Logout"]
             : ["Home", "Product", "Login"]
         const authMenu = auth.map(authElement => {
             return (

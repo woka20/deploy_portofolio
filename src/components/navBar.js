@@ -23,6 +23,13 @@ class NavBar extends React.Component{
             }else if(localStorage.getItem("isLogin")==="true"){
                 this.props.history.push("/Dashboard")
             }            
+        }else if(menu=="Profile"){
+            if (localStorage.getItem("isLogin")==="admin"){
+                this.props.history.push("/ProfileAdmin")
+            }else if(localStorage.getItem("isLogin")==="true"){
+                this.props.history.push("/Profile")
+            } 
+
         }else if (menu !=="Logout" && menu !== "Home"){
             this.props.history.push(`/${menu}`)
         }
