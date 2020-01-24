@@ -21,11 +21,10 @@ before_script:
 - cp kubeconfig kube/
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 script:
-- sudo npm run build
 #- cp travis.env .env
 #- cat .env
 ###- mkdir logs
-# - npm run build
+- npm run build
 # - npm run test
 after_success:
 # - npm run coverage
