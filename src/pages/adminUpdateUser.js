@@ -3,7 +3,7 @@ import {store_product, actions, store} from "../store"
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import axios from 'axios'
-import {Container, Row, Col, Form, Button, ListGroup, Image} from 'react-bootstrap';
+import {Container, Spinner, Row, Col, Form, Button, ListGroup, Image} from 'react-bootstrap';
 import NavigationBar from "../components/navBar"
 
 import  { Redirect } from 'react-router-dom'
@@ -135,5 +135,5 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUser, new_payment_ss,payment,details_cart, id_order, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUser, new_payment_ss,payment,details_cart, isLoading,id_order, active_cart_id",actions)(withRouter(AdminToUser))
 
