@@ -66,7 +66,7 @@ class NavBar extends React.Component{
 categoryFunc= async(value)=>{
  
     const req = {method: "get",
-                    url: `https://gundam-woka.my.id/products/list`,
+                    url: `http://localhost:5000/products/list`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
             };

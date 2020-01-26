@@ -21,9 +21,11 @@ class AdminToUser extends React.Component{
                 await axios(req)
                 .then((response)=>{
                     if (response.data.bukti_pembayaran !== null){
-                        console.log("KOK MAsUK", response.data.bukti_pembayaran)
+                      
                         store.setState({listUser:response.data.bukti_pembayaran.replace("b","")})
                         store.setState({listUser:this.props.listUser.replace(/'/g,"")})    
+                    }else{
+                        console.log("null payment evidence")
                     }
                     store.setState({details_cart:response.data})
                     
@@ -73,9 +75,8 @@ class AdminToUser extends React.Component{
 
     render(){
         this.renderAgain()
-        if (this.props.listUser!==""){
-            console.log("SINILAGI 8999", this.props.listUser)
-            console.log("SINILAGI", this.props.new_payment_ss)
+        if (this.props.listUser.length !== 0){
+           
             const listCostumer=this.props.listUser
             const bukti=listCostumer
         
@@ -86,8 +87,8 @@ class AdminToUser extends React.Component{
                 this.checkAdmin()
            
             }
-        }else if (this.props.listUser===""){
-            console.log("HHHHHHHHHAI", this.props.new_payment_ss)
+        }else if (this.props.listUser.length === 0){
+           
             
             store.setState({new_payment_ss:"https://tby.jogjaprov.go.id/booking/assets/image/no-image-available.jpg"})
         }
