@@ -66,7 +66,7 @@ class AdminToUser extends React.Component{
                 await axios(req)
                 .then((response)=>{
                 alert("Payment Status Succesfully Updated")
-                this.props.history.push("/")
+                this.props.history.push("/dashboardedituser")
                                 
                 })
                 .catch((error)=>alert(error))    
@@ -75,7 +75,7 @@ class AdminToUser extends React.Component{
 
     render(){
         this.renderAgain()
-        console.log("KKKYUIOP",this.props.listUser.length)
+     
         if (this.props.listUser.length !== 0){
            
             const listCostumer=this.props.listUser
