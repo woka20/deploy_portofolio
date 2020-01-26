@@ -105,8 +105,8 @@ categoryFunc= async(value)=>{
         return( <Navbar expand="lg" bg="light">
                   <Nav className="mr-auto">
                       <Navbar.Brand href="/">
-                          <img src={logo} width="50" height="50" className="d-inline-block align-center" alt="logo"/>
-                          <span>Gundam World</span>
+                          <img src={logo} width="40" height="40" className="d-inline-block align-center" alt="logo"/>
+                          <span>Gundam Woka</span>
                         </Navbar.Brand>
                     </Nav>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
