@@ -32,7 +32,7 @@ class Register extends React.Component{
             }
             
         })
-        .catch((error)=>alert(error))
+        .catch((error)=>alert(response.data.status))
     
     }
     render(){
