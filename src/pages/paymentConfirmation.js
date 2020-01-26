@@ -39,7 +39,7 @@ class Confirmation extends React.Component{
                   </div>
                   <Form onSubmit={event => event.preventDefault()}>
                   <Form.Group>
-                      <Form.Label></Form.Label>
+                      <Form.Label>Transfer Receipt (only accept JPG file)</Form.Label>
                       <Form.Control type="file" name="payment" onChange={event=>this.props.handleFileUpload(event)} webkitdirectory></Form.Control>
                       <img src={this.props.payment}/>
                   </Form.Group>

@@ -37,7 +37,7 @@ class Register extends React.Component{
             // The request was made and the server responded with a status code
             alert(error.response.data.status);
         }else{
-            alert("username already existed")
+            alert(error)
         }})
     
     }
