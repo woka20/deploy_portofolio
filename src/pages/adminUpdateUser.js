@@ -125,7 +125,7 @@ class AdminToUser extends React.Component{
                     </Form.Group>
                     <Button variant="outline-info" type="submit" onClick={() => this.updateUserPayment()}>
                     Update</Button>
-                    {isLoading?<Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>:<div>Done</div>}
+                    {this.props.isLoading?<Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>:<div>Done</div>}
                   </Form>
 
                   </Col>
