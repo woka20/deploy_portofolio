@@ -65,6 +65,7 @@ class AdminToUser extends React.Component{
                             };
                 await axios(req)
                 .then((response)=>{
+                store.setState({isLoading:false})    
                 alert("Payment Status Succesfully Updated")
                 this.props.history.push("/payments")
                                 
@@ -123,7 +124,8 @@ class AdminToUser extends React.Component{
                         <Form.Control type="text" name="payment" onChange={event=>this.props.handleSetGlobal(event)}/>
                     </Form.Group>
                     <Button variant="outline-info" type="submit" onClick={() => this.updateUserPayment()}>
-                    Update Product</Button>
+                    Update</Button>
+                    {isLoading?<Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>:<div>Done</div>}
                   </Form>
 
                   </Col>
