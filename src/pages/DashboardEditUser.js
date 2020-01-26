@@ -42,7 +42,7 @@ class AdminToUser extends React.Component{
     }
 
     checkLogin=()=>{
-        if (localStorage.getItem("isLogin")=== null){
+        if (localStorage.getItem("isLogin")!== "admin"){
             alert("You cannot access this page!")
             this.props.history.push("/")
 
@@ -78,9 +78,6 @@ class AdminToUser extends React.Component{
  
         const listProduk=this.props.listUserProduct
  
-        if(listProduk.tipe==="Premium" || listProduk.user_id != localStorage.getItem("id_user")){
-            this.checkAdmin()
-        }
 
         this.checkLogin()        
         return( 
