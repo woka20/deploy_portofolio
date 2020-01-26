@@ -3,6 +3,8 @@ import axios from 'axios'
 
 
 const initialState={
+        listUserProduct:[],
+        new_payment_ss:"",
         active_cart_id:0,
         listUser:[],
         qty:[1,2,3],
@@ -86,7 +88,6 @@ export const actions = store =>({
                 reader.readAsDataURL(file)
                 reader.onload = () => {
                         store.setState({ payment: reader.result})
-                        // store.setState({ payment: reader.result.replace("data:image/jpeg;base64,", "")})
                        
           } 
         },

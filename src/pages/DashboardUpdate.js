@@ -19,7 +19,7 @@ class UpdateAdmin extends React.Component{
         if (listProduk[0].tipe==="Premium"){
             const types="premium"
             const req = {method: "get",
-                    url: `http://localhost:5000/products/${types}/${active_item}`,
+                    url: `https://gundam-woka.my.id/products/${types}/${active_item}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
@@ -74,7 +74,7 @@ class UpdateAdmin extends React.Component{
                 if (listProduk.tipe==="Premium"){
                     const types="premium"
                     const req = {method: "put",
-                                url: `http://localhost:5000/products/${types}/${active_item}`,
+                                url: `https://gundam-woka.my.id/products/${types}/${active_item}`,
                                 headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
                                 data:inputs
             
@@ -89,7 +89,7 @@ class UpdateAdmin extends React.Component{
                     }else{
                         const types="used"
                         const req = {method: "put",
-                                url: `http://localhost:5000/products/${types}/${active_item}`,
+                                url: `https://gundam-woka.my.id/products/${types}/${active_item}`,
                                 headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
                                 data:inputs
             

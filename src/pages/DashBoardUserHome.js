@@ -13,7 +13,7 @@ class HomeUser extends React.Component{
     componentDidMount = async ()=>{
             
             const req = {method: "get",
-                        url: `http://localhost:5000/products/list`,
+                        url: `https://gundam-woka.my.id/products/list`,
                         headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token"),'Content-Type': 'application/json'},
                     };
             await axios(req)
@@ -25,15 +25,15 @@ class HomeUser extends React.Component{
         }
 
     handleChangeUser=async (event)=>{ 
-        console.log("IIIIIIIII", event)
+      
         store.setState({active_product_id:event})
         const req = {method: "get",
-                        url: `http://localhost:5000/products/used/${event}`,
+                        url: `https://gundam-woka.my.id/products/used/${event}`,
                         headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token"),'Content-Type': 'application/json'}
                     };
             await axios(req)
             .then((response)=>{
-                console.log("6666666666666", response.data)
+                
                 store.setState({dashboard:response.data, isLoading:false})
                 this.props.history.push("/DashboardUpdateUser") 
                 
@@ -49,7 +49,7 @@ class HomeUser extends React.Component{
         
     
         const req = {method: "delete",
-                    url: `http://localhost:5000/products/used/${event}`,
+                    url: `https://gundam-woka.my.id/products/used/${event}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
             };

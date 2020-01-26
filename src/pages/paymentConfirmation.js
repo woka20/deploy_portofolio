@@ -16,7 +16,7 @@ class Confirmation extends React.Component{
         
         const id=this.props.etc.id
         const req={method:"put",
-        url:`http://localhost:5000/shop/confirm/${id}`,
+        url:`https://gundam-woka.my.id/shop/confirm/${id}`,
         headers:{"Access-Control-Flow-Origin":"*", "Authorization":'Bearer '+ localStorage.getItem("token")},
         data: inputs
                   

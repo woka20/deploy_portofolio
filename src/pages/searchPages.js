@@ -7,8 +7,7 @@ import {Container,Col, Card,Row, Form, Button, ListGroup, Image, CardDeck} from 
 import NavigationBar from "../components/navBar"
 
 
-class SearchPage extends React.Component{
-//    
+class SearchPage extends React.Component{ 
     
     render(){
         // this.getSearch()

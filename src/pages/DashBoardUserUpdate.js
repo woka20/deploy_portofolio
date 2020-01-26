@@ -18,7 +18,7 @@ class UpdateUser extends React.Component{
         
             const types="used"
             const req = {method: "get",
-                    url: `http://localhost:5000/products/used/${active_item}`,
+                    url: `https://gundam-woka.my.id/products/used/${active_item}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
@@ -65,7 +65,7 @@ class UpdateUser extends React.Component{
                 const listProduk=this.props.dashboard
              
                 const req = {method: "put",
-                            url: `http://localhost:5000/products/used/${active_item}`,
+                            url: `https://gundam-woka.my.id/products/used/${active_item}`,
                             headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
                             data:inputs
             
@@ -82,7 +82,6 @@ class UpdateUser extends React.Component{
     }
     render(){
         const listProduk=this.props.dashboard
-        console.log("999", localStorage.getItem("id_user"))
         if(listProduk.tipe==="Premium" || listProduk.user_id != localStorage.getItem("id_user")){
             this.checkAdmin()
         }

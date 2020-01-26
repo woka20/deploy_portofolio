@@ -6,7 +6,7 @@ import axios from 'axios'
 import {Container, Card,Row, Col,Form, Button, ListGroup, Table, Image} from 'react-bootstrap';
 import NavigationBar from "../components/navBar"
 import transfer from "../images/transfer.jpg"
-
+// import mailjet from "node-mailjet"
 
 class Checkout extends React.Component{
    
@@ -17,18 +17,18 @@ class Checkout extends React.Component{
 
         }
     }
+
     
     componentDidMount= async()=>{
         
         const req = {method: "get",
-                    url: `http://localhost:5000/shop/cart`,
+                    url: `https://gundam-woka.my.id/shop/cart`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
                  
         };
         await
         axios(req)
         .then((response)=>{
-            console.log("APASIH", response.data)
             store.setState({checkout:response.data.Product, etc:response.data})
         
     }
@@ -40,15 +40,7 @@ class Checkout extends React.Component{
         this.checkLogin()
         const checkout=this.props.checkout
         const etc=this.props.etc
-        console.log("LLLLL",etc)
-        // const everthingProduct=Object.values(checkout).filter(item =>{
-        //     if (item.id===this.props.etc.product_id){
-        //         return item
-                
-        //     }
-        //     return false
-        // }) 
-   
+       
             
         return <React.Fragment>
                  <NavigationBar />

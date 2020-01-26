@@ -53,7 +53,7 @@ class MainRoute extends React.Component {
                         <Route exact path="/confirmation" component={Confirmation} />
                         <Route exact path="/ProfileAdmin" component={ProfileAdmin} />
                         <Route exact path="/adminUpdateUser" component={AdminUpdateUser} />
-                        <Route exact path="/DashboardEditUser" component={DashboardEditUser} />
+                        <Route exact path="/payments" component={DashboardEditUser} />
                         <Route exact path="/category/:category" component={Category} />
                         <Route component={NotMatch}/>
                         

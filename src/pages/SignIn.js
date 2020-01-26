@@ -27,7 +27,6 @@ class SignIn extends React.Component{
                          
         await axios(req)
         .then((response)=>{
-            console.log("GILA", response.data)
             if(this.props.username ==="admin" && this.props.password ==="woka"){
                 this.props.adminLogin(response.data)
             }else{

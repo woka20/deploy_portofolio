@@ -4,23 +4,23 @@ import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import axios from 'axios'
 import {Container, Row, Col, Table, Form, Button, ListGroup, Image} from 'react-bootstrap';
-import NavigationBar from "../components/navBar"
+import NavBarAdmin from "../components/navbarAdmin"
 import  { Redirect } from 'react-router-dom'
 
 
 class AdminToUser extends React.Component{
 
-    apanih = async ()=>{
+    componentDidMount = async ()=>{
   
             const req = {method: "get",
-                    url: `http://localhost:5000/shop/checkout`,
+                    url: `https://gundam-woka.my.id/shop/checkout`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
                 await axios(req)
                 .then((response)=>{
-                    console.log("????", response.data)
-                    store.setState({listUser:response.data})
+                   
+                    store.setState({listUserProduct:response.data})
                     
                     
                 })
@@ -57,10 +57,9 @@ class AdminToUser extends React.Component{
                     }
                 
                 const active_item=this.props.active_product_id
-                console.log("PPPPPP", active_item)
              
                 const req = {method: "put",
-                            url: `http://localhost:5000/shop/checkout`,
+                            url: `https://gundam-woka.my.id/shop/checkout`,
                             headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
                             data:inputs
             
@@ -76,10 +75,8 @@ class AdminToUser extends React.Component{
             
     }
     render(){
-        this.apanih()
-        console.log("999", this.props.dashboard)
-        const listkons=[]
-        const listProduk=this.props.listUser
+ 
+        const listProduk=this.props.listUserProduct
  
         if(listProduk.tipe==="Premium" || listProduk.user_id != localStorage.getItem("id_user")){
             this.checkAdmin()
@@ -88,7 +85,7 @@ class AdminToUser extends React.Component{
         this.checkLogin()        
         return( 
             <React.Fragment>
-                <NavigationBar />
+                <NavBarAdmin />
                 <Table onClick={event=>event.preventDefault()} striped bordered hover size="sm" variant="dark">
                       <thead>
                           <tr>
@@ -111,7 +108,7 @@ class AdminToUser extends React.Component{
                             <td>{item.total_harga}</td>
                             <td>{item.payment}</td>
                             <td><Button variant="info" onClick={event=>this.handleChangeAdmin(item.id)}>Update</Button></td>
-                             {/* <Button variant="danger" onClick={event=>this.deleteProductbyID(item.id)}>Delete</Button></td> */}
+                            
                             </tr>
                             ) )}
                     </tbody> 
@@ -122,4 +119,4 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUser, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUserProduct, active_cart_id",actions)(withRouter(AdminToUser))

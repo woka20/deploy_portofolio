@@ -5,22 +5,26 @@ import {connect} from "unistore/react";
 import axios from 'axios'
 import {Container, Row, Col, Form, Button, ListGroup, Image} from 'react-bootstrap';
 import NavigationBar from "../components/navBar"
+
 import  { Redirect } from 'react-router-dom'
 
 
 class AdminToUser extends React.Component{
 
-    componentDidMount = async ()=>{
+    renderAgain = async ()=>{
             const active_item=this.props.active_cart_id
             const req = {method: "get",
-                    url: `http://localhost:5000/shop/confirm/${active_item}`,
+                    url: `https://gundam-woka.my.id/shop/confirm/${active_item}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
                 await axios(req)
                 .then((response)=>{
-                    store.setState({listUser:response.data.bukti_pembayaran.replace("b","")})
-                    store.setState({listUser:this.props.listUser.replace(/'/g,"")})
+                    if (response.data.bukti_pembayaran !== "b'AAAAAAAAAAAAAA=='"){
+                        console.log("KOK MAsUK", response.data.bukti_pembayaran)
+                        store.setState({listUser:response.data.bukti_pembayaran.replace("b","")})
+                        store.setState({listUser:this.props.listUser.replace(/'/g,"")})    
+                    }
                     store.setState({details_cart:response.data})
                     
                 })
@@ -37,7 +41,7 @@ class AdminToUser extends React.Component{
     checkLogin=()=>{
         if (localStorage.getItem("isLogin")=== null){
             alert("You cannot access this page!")
-            this.props.history.push("/")
+            this.props.history.push("/payments")
 
         }
     }
@@ -52,7 +56,7 @@ class AdminToUser extends React.Component{
                 const active_item=this.props.active_cart_id
              
                 const req = {method: "put",
-                            url: `http://localhost:5000/shop/checkout`,
+                            url: `https://gundam-woka.my.id/shop/checkout`,
                             headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
                             data:inputs
             
@@ -68,16 +72,27 @@ class AdminToUser extends React.Component{
 
 
     render(){
-    
-        const listCostumer=this.props.listUser
-        const bukti=listCostumer
-        const details=this.props.details_cart
-        const new_barbuk='data:image/jpeg;base64,'+ bukti
-        console.log("UYUYU",new_barbuk)
- 
-        if(listCostumer.tipe==="Premium" || listCostumer.user_id != localStorage.getItem("id_user")){
-            this.checkAdmin()
+        this.renderAgain()
+        if (this.props.listUser!==""){
+            console.log("SINILAGI 8999", this.props.listUser)
+            console.log("SINILAGI", this.props.new_payment_ss)
+            const listCostumer=this.props.listUser
+            const bukti=listCostumer
+        
+            const new_barbuk='data:image/jpeg;base64,'+ bukti
+      
+            store.setState({new_payment_ss:new_barbuk}) 
+            if(listCostumer.tipe==="Premium" || listCostumer.user_id != localStorage.getItem("id_user")){
+                this.checkAdmin()
+           
+            }
+        }else if (this.props.listUser===""){
+            console.log("HHHHHHHHHAI", this.props.new_payment_ss)
+            
+            store.setState({new_payment_ss:"https://tby.jogjaprov.go.id/booking/assets/image/no-image-available.jpg"})
         }
+        const details=this.props.details_cart
+ 
         this.checkLogin()
         return( 
             <React.Fragment>
@@ -93,8 +108,8 @@ class AdminToUser extends React.Component{
                     <Button block disabled>{details.total_harga}</Button>
                     <label>Status Pembayaran</label>
                     <Button block disabled>{details.payment}</Button>
-                    <label>Bukti Pembayaran</label>
-                    <img src={new_barbuk}/>
+                    <label>Bukti Pembayaran</label><br/>
+                    <img className="payment_evidence" src={this.props.new_payment_ss}/>
                  </Col>
                  <Col md="6">
                     <Form onSubmit={event=> event.preventDefault()}>
@@ -118,5 +133,5 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUser, payment,details_cart, id_order, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUser, new_payment_ss,payment,details_cart, id_order, active_cart_id",actions)(withRouter(AdminToUser))
 

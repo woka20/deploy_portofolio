@@ -16,13 +16,12 @@ class UpdateProfile extends React.Component{
        
         const types="used"
         const req = {method: "get",
-                    url: `http://localhost:5000/user/${active_item}`,
+                    url: `https://gundam-woka.my.id/user/${active_item}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
                 await axios(req)
                 .then((response)=>{
-                    console.log("RESPONDSE",response.data)
                     store.setState({profile:response.data})
                     
                 })
@@ -44,14 +43,14 @@ class UpdateProfile extends React.Component{
                         full_name:this.props.nama,
                         kota:this.props.alamat,
                         telp:this.props.telp,
-                        // profile: this.props.profile,
+                        
                     }
                 const active_item=localStorage.getItem("id_user")
                
                 
                 
                 const req = {method: "put",
-                            url: `http://localhost:5000/user/${active_item}`,
+                            url: `https://gundam-woka.my.id/user/${active_item}`,
                             headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
                             data:inputs
                         };

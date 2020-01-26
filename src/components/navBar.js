@@ -8,7 +8,7 @@ import axios from 'axios'
 
 class NavBar extends React.Component{
     navigation = menu =>{
-        // const self=this
+    
         if (menu ==='Logout'){
             localStorage.removeItem("isLogin")
             localStorage.removeItem("admin")
@@ -36,7 +36,7 @@ class NavBar extends React.Component{
     }
     searchFunc= async()=>{
         const req = {method: "get",
-                        url: `http://localhost:5000/products/list`,
+                        url: `https://gundam-woka.my.id/products/list`,
                         headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
     
                 };
@@ -64,9 +64,9 @@ class NavBar extends React.Component{
 }
 
 categoryFunc= async(value)=>{
-    console.log("BMABNG",value)
+ 
     const req = {method: "get",
-                    url: `http://localhost:5000/products/list`,
+                    url: `https://gundam-woka.my.id/products/list`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
             };
@@ -78,13 +78,11 @@ categoryFunc= async(value)=>{
                 .catch((error)=>alert(error))
     store.setState({keyword:value})
     const key=this.props.keyword
-    console.log("KUNCI", key)
+
     const search_final=[]
     Object.values(this.props.listProduk).map(item=>{
         if (item.category.toLowerCase().search(key)!== -1){
-            console.log("ITEM1", item.nama_produk.toLowerCase()) 
-            console.log("ITEM2", item.nama_produk.toLowerCase().search(key)) 
-            console.log("EDANN", item)
+        
             search_final.push(item)
             }
         

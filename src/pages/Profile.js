@@ -12,12 +12,12 @@ class Profile extends React.Component{
     componentDidMount = async ()=>{
         const user_id= localStorage.getItem("id_user")    
         const req = {method: "get",
-                    url: `http://localhost:5000/user/${user_id}`,
+                    url: `https://gundam-woka.my.id/user/${user_id}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token"),'Content-Type': 'application/json'},
                 };
         await axios(req)
         .then((response)=>{
-            console.log("APASIH", response.data)
+         
             store.setState({profile:response.data, isLoading:false})
             
         })
@@ -36,7 +36,7 @@ class Profile extends React.Component{
     
     render(){
         this.checkLogin()
-        console.log("KJHN", this.props.profile)
+
         return( 
             <React.Fragment>
                 <NavigationBar />

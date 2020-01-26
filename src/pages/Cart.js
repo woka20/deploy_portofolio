@@ -23,26 +23,26 @@ class Cart extends React.Component{
         if (listProduk[0].tipe==="Premium"){
             const types="premium"
             const req = {method: "get",
-                    url: `http://localhost:5000/products/${types}/${active_item}`,
+                    url: `https://gundam-woka.my.id/products/${types}/${active_item}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
                 await axios(req)
                 .then((response)=>{
-                    console.log("333APASIH", response.data)
+                    
                     store.setState({picked_product:response.data, isLoading:false})
                 })
                 .catch((error)=>alert(error))
         }else{
             const types="used"
             const req = {method: "get",
-                    url: `http://localhost:5000/products/${types}/${active_item}`,
+                    url: `https://gundam-woka.my.id/products/${types}/${active_item}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
                 await axios(req)
                 .then((response)=>{
-                    console.log("APASIH", response.data)
+                
                     store.setState({picked_product:response.data, isLoading:false})})
                     .catch((error)=>alert(error))
         }
@@ -57,7 +57,7 @@ class Cart extends React.Component{
 
     
         const req = {method: "post",
-        url: `http://localhost:5000/shop/cart`,
+        url: `https://gundam-woka.my.id/shop/cart`,
         headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")},
         params:inputs
     
@@ -65,9 +65,9 @@ class Cart extends React.Component{
     
       await axios(req)
       .then((response)=>{
-        console.log("APASIH3456", response.data)
+       
         store.setState({cart:response.data, isLoading:false})
-        this.props.history.push("/checkout")
+        
     })
      .catch((error)=>{
         if (error.response.data){
@@ -75,7 +75,7 @@ class Cart extends React.Component{
             // that falls out of the range of 2xx
             alert(error.response.data.status);
         }else{
-            alert("KKKKK", error)
+            alert(error)
         }
     })
 }
@@ -86,7 +86,7 @@ class Cart extends React.Component{
         const picked_product=this.props.picked_product
         const courier=this.props.courier
         const qty=this.props.qty
-        console.log("KURIR", this.props.courier)
+      
        
         return <React.Fragment>
                  <NavigationBar />

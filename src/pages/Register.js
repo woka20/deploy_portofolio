@@ -10,7 +10,7 @@ import Footer from "../components/footer"
 class Register extends React.Component{
     register = async ()=>{
         const req = {method: "post",
-                    url: "http://localhost:5000/user/register",
+                    url: "https://gundam-woka.my.id/user/register",
                     headers: {"Access-Control-Allow-Origin":'*'},
                     params: {"client_name": this.props.username,
                              "client_password":this.props.password, 

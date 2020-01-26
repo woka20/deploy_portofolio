@@ -7,7 +7,7 @@ import {Navbar,Nav} from 'react-bootstrap';
 
 class NavAdmin extends React.Component{
     navigation = menu =>{
-        // const self=this
+
         if (menu ==='Logout'){
             localStorage.removeItem("isLogin")
             localStorage.removeItem("admin")
@@ -26,7 +26,7 @@ class NavAdmin extends React.Component{
     }
 
     render(){
-        const auth = localStorage.getItem("isLogin")? ["Home", "Product", "Edit Users", "Logout"]
+        const auth = localStorage.getItem("isLogin")? ["Home", "Product", "Payments", "Logout"]
             : ["Home", "Product", "Login"]
         const authMenu = auth.map(authElement => {
             return (

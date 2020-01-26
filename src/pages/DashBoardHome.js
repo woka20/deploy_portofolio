@@ -13,7 +13,7 @@ class HomeAdmin extends React.Component{
     componentDidMount = async ()=>{
             
             const req = {method: "get",
-                        url: `http://localhost:5000/products/list`,
+                        url: `https://gundam-woka.my.id/products/list`,
                         headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token"),'Content-Type': 'application/json'},
                     };
             await axios(req)
@@ -27,7 +27,6 @@ class HomeAdmin extends React.Component{
 
     handleChangeAdmin=(event)=>{ 
             store.setState({active_product_id:event})
-            console.log("UPDATE", this.props.active_product_id)
             this.props.history.push("/DashboardUpdate") 
      
     
@@ -41,7 +40,7 @@ class HomeAdmin extends React.Component{
         if (listProduk[0].tipe==="Premium"){
             const types="premium"
             const req = {method: "delete",
-                    url: `http://localhost:5000/products/${types}/${event}`,
+                    url: `https://gundam-woka.my.id/products/${types}/${event}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
@@ -55,7 +54,7 @@ class HomeAdmin extends React.Component{
         }else{
             const types="used"
             const req = {method: "delete",
-                    url: `http://localhost:5000/products/${types}/${event}`,
+                    url: `https://gundam-woka.my.id/products/${types}/${event}`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };

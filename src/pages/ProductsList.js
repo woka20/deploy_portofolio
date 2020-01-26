@@ -16,13 +16,12 @@ class Products extends React.Component{
     }
     getProductList = async ()=>{
         const req = {method: "get",
-                    url: `http://localhost:5000/products/list`,
+                    url: `https://gundam-woka.my.id/products/list`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
 
                 };
         await axios(req)
         .then((response)=>{
-            console.log("APASIH", response.data)
             store.setState({listProduk:response.data, isLoading:false})
             
         })

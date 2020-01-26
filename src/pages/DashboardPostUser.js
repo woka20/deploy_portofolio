@@ -32,13 +32,12 @@ class User extends React.Component{
                         description: this.props.description
                     }
             const req = {method: "post",
-                        url: `http://localhost:5000/products/used/1`,
+                        url: `https://gundam-woka.my.id/products/used/1`,
                         headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token"),'Content-Type': 'application/json'},
                         data: inputs
                     };
             await axios(req)
             .then((response)=>{
-                // this.props.history.push("/profile")
                 alert("New Product Has Been Added")
                 this.props.history.push("/DashboardUserHome")
                 
