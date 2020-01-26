@@ -32,9 +32,15 @@ class Register extends React.Component{
             }
             
         })
-        .catch((error)=>alert(error.data.status))
+        .catch((error)=>{if (error.response.data){
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            alert(error.response.data.status);
+        }else{
+            alert(error)
+        }
     
-    }
+    }}
     render(){
         console.log("WARN", this.props.state)
         return <React.Fragment>
