@@ -5,6 +5,9 @@ import banner1 from "../images/banner1.jpg"
 import banner2 from "../images/banner2.jpg"
 import banner3 from "../images/banner3.jpg"
 import Footer from "../components/footer"
+import {store_product,store, actions} from "../store"
+import {withRouter} from "react-router-dom";
+import {connect} from "unistore/react";
 
 class Home extends React.Component{
 
@@ -41,4 +44,4 @@ class Home extends React.Component{
     }
 }
 
-export default Home
+export default connect("username, password", actions)(withRouter(Home))

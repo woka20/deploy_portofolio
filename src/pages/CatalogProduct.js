@@ -9,7 +9,8 @@ import Footer from "../components/footer"
 
 
 class Catalog extends React.Component{
-    componentDidMount= async ()=>{
+
+    componentDidMount = async ()=>{
         const req = {method: "get",
                     url: `https://gundam-woka.my.id/products/list`,
                     headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
