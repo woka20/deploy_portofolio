@@ -9,6 +9,19 @@ import Footer from "../components/footer"
 
 
 class Catalog extends React.Component{
+    componentDidMount= async ()=>{
+        const req = {method: "get",
+                    url: `https://gundam-woka.my.id/products/list`,
+                    headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
+
+                };
+        await axios(req)
+        .then((response)=>{
+            store.setState({listProduk:response.data, isLoading:false})
+        })
+        .catch((error)=>alert(error))
+    
+    }
     checkLogin=()=>{
         if (localStorage.getItem("isLogin")== null){
             alert("You cannot access this page!")
@@ -23,22 +36,9 @@ class Catalog extends React.Component{
 
     }
     
-    getProductList = async ()=>{
-        const req = {method: "get",
-                    url: `https://gundam-woka.my.id/products/list`,
-                    headers: {"Access-Control-Allow-Origin":'*', 'Authorization':'Bearer ' + localStorage.getItem("token")}
-
-                };
-        await axios(req)
-        .then((response)=>{
-            store.setState({listProduk:response.data, isLoading:false})
-        })
-        .catch((error)=>alert(error))
-    
-    }
     render(){
         
-        this.getProductList()
+       
         const daftar_produk=this.props.listProduk.map(item=>{
             return item
         })
