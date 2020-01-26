@@ -35,7 +35,7 @@ class Confirmation extends React.Component{
                   <NavigationBar/>
                   <div>
                       <label>Order ID</label>
-                      <Button block disabled>{this.props.etc.id}</Button>
+                      <Button className="confirm-part" block disabled>{this.props.etc.id}</Button>
                   </div>
                   <Form onSubmit={event => event.preventDefault()}>
                   <Form.Group>
