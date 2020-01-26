@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 const initialState={
-        listUserProduct:"",
+        listUserProduct:[],
         new_payment_ss:"",
         active_cart_id:0,
         listUser:[],

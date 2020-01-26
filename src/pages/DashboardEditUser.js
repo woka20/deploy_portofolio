@@ -10,7 +10,7 @@ import  { Redirect } from 'react-router-dom'
 
 class AdminToUser extends React.Component{
 
-    componentDidMount = async ()=>{
+    getShopCart = async ()=>{
   
             const req = {method: "get",
                     url: `https://gundam-woka.my.id/shop/checkout`,
@@ -75,7 +75,7 @@ class AdminToUser extends React.Component{
             
     }
     render(){
- 
+        this.getShopCart()
         const listProduk=this.props.listUserProduct
  
 

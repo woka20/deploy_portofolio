@@ -135,5 +135,5 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUser, new_payment_ss,payment,details_cart, isLoading,id_order, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUserProduct, new_payment_ss,payment,details_cart, isLoading,id_order, active_cart_id",actions)(withRouter(AdminToUser))
 
