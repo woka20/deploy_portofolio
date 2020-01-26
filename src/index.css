@@ -119,8 +119,6 @@ h4{
 
 .product-catalog{
   padding-bottom: 300px;
-  padding-right: 200px;
-}
 
 .catalog-search{
   padding-bottom:50px;
@@ -128,4 +126,8 @@ h4{
 
 .payment_evidence{
   width:350px;
+}
+
+.catalog-col{
+  padding-right:80px;
 }

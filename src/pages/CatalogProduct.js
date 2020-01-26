@@ -46,7 +46,7 @@ class Catalog extends React.Component{
                  <NavigationBar />
                  <Row>
                  {daftar_produk.map(item=>(
-                 <Col md="3">
+                 <Col md="3" className="catalog-col">
                 <CardDeck className="product-catalog" >
                  <Card className="catalog-list" onSubmit={event => event.preventDefault()} style={{ width: '18rem' }}>
                      <a target="blank" href={item.gambar}>
