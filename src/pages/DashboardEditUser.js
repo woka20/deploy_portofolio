@@ -20,7 +20,7 @@ class AdminToUser extends React.Component{
                 await axios(req)
                 .then((response)=>{
                    
-                    store.setState({listUserProduct:response.data})
+                    store.setState({listUser:response.data})
                     
                     
                 })
@@ -76,7 +76,7 @@ class AdminToUser extends React.Component{
     }
     render(){
  
-        const listProduk=this.props.listUserProduct
+        const listProduk=this.props.listUser
  
         if(listProduk.tipe==="Premium" || listProduk.user_id != localStorage.getItem("id_user")){
             this.checkAdmin()
@@ -119,4 +119,4 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUserProduct, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUser, active_cart_id",actions)(withRouter(AdminToUser))
