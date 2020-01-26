@@ -55,7 +55,6 @@ class AdminToUser extends React.Component{
                         
                     }
                 
-                const active_item=this.props.active_cart_id
              
                 const req = {method: "put",
                             url: `https://gundam-woka.my.id/shop/checkout`,
@@ -117,7 +116,7 @@ class AdminToUser extends React.Component{
                     <Form onSubmit={event=> event.preventDefault()}>
                     
                     <Form.Group>
-                        <Form.Label>ID Produk</Form.Label>
+                        <Form.Label>Order ID</Form.Label>
                         <Form.Control type="text" name="id_order" onChange={event=>this.props.handleSetGlobal(event)}/>
                     </Form.Group>
                     <Form.Group>
