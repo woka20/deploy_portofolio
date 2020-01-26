@@ -25,7 +25,7 @@ class AdminToUser extends React.Component{
                         store.setState({listUser:response.data.bukti_pembayaran.replace("b","")})
                         store.setState({listUser:this.props.listUser.replace(/'/g,"")})    
                     }else{
-                        console.log("null payment evidence!")
+                        console.log("null payment evidence")
                     }
                     store.setState({details_cart:response.data})
                     
@@ -55,6 +55,7 @@ class AdminToUser extends React.Component{
                         
                     }
                 
+
              
                 const req = {method: "put",
                             url: `https://gundam-woka.my.id/shop/checkout`,
@@ -135,5 +136,5 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUserProduct, new_payment_ss,payment,details_cart, isLoading,id_order, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUser, new_payment_ss,payment,details_cart, isLoading,id_order, active_cart_id",actions)(withRouter(AdminToUser))
 
