@@ -44,7 +44,7 @@ class Cart extends React.Component{
                 .then((response)=>{
                 
                     store.setState({picked_product:response.data, isLoading:false})})
-                    .catch((error)=>alert(error))
+                .catch((error)=>alert(error))
         }
     }
 
@@ -67,7 +67,7 @@ class Cart extends React.Component{
       .then((response)=>{
        
         store.setState({cart:response.data, isLoading:false})
-        
+        this.props.history.push('/product')
     })
      .catch((error)=>{
         if (error.response.data){

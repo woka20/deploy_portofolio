@@ -34,7 +34,6 @@ class Confirmation extends React.Component{
         return (<React.Fragment>
                   <NavigationBar/>
                   <div>
-                      <img src={this.props.payment}/>
                       <label>Order ID</label>
                       <Button block disabled>{this.props.etc.id}</Button>
                   </div>
@@ -42,6 +41,7 @@ class Confirmation extends React.Component{
                   <Form.Group>
                       <Form.Label></Form.Label>
                       <Form.Control type="file" name="payment" onChange={event=>this.props.handleFileUpload(event)} webkitdirectory></Form.Control>
+                      <img src={this.props.payment}/>
                   </Form.Group>
                   <Button onClick={()=>this.postConfirm()}>Submit</Button>
                   </Form>
