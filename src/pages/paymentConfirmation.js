@@ -33,10 +33,9 @@ class Confirmation extends React.Component{
        
         return (<React.Fragment>
                   <NavigationBar/>
-                  <div>
+                  <div  className="container-confirm">
                       <label>Order ID</label>
                       <Button className="confirm-part" block disabled>{this.props.etc.id}</Button>
-                  </div>
                   <Form onSubmit={event => event.preventDefault()}>
                   <Form.Group>
                       <Form.Label>Transfer Receipt (only accept JPG file)</Form.Label>
@@ -45,7 +44,7 @@ class Confirmation extends React.Component{
                   </Form.Group>
                   <Button onClick={()=>this.postConfirm()}>Submit</Button>
                   </Form>
-
+                </div>
                 </React.Fragment>)
     }
 }
