@@ -75,6 +75,7 @@ class AdminToUser extends React.Component{
 
     render(){
         this.renderAgain()
+        console.log("KKKYUIOP",this.props.listUser.length)
         if (this.props.listUser.length !== 0){
            
             const listCostumer=this.props.listUser
@@ -88,8 +89,6 @@ class AdminToUser extends React.Component{
            
             }
         }else if (this.props.listUser.length === 0){
-           
-            
             store.setState({new_payment_ss:"https://tby.jogjaprov.go.id/booking/assets/image/no-image-available.jpg"})
         }
         const details=this.props.details_cart
