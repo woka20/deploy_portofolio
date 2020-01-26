@@ -38,9 +38,9 @@ class Register extends React.Component{
             alert(error.response.data.status);
         }else{
             alert(error)
-        }
+        }})
     
-    }}
+    }
     render(){
         console.log("WARN", this.props.state)
         return <React.Fragment>
