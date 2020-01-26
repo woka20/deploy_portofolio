@@ -67,7 +67,7 @@ class AdminToUser extends React.Component{
                 .then((response)=>{
                 store.setState({isLoading:false})    
                 alert("Payment Status Succesfully Updated")
-                this.props.history.push("/payments")
+                this.props.history.push("/DashboardHome")
                                 
                 })
                 .catch((error)=>alert(error))    
