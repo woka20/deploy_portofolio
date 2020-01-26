@@ -66,7 +66,7 @@ class AdminToUser extends React.Component{
                 await axios(req)
                 .then((response)=>{
                 alert("Payment Status Succesfully Updated")
-                this.props.history.push("/dashboardedituser")
+                this.props.history.push("/payments")
                                 
                 })
                 .catch((error)=>alert(error))    
