@@ -3,7 +3,7 @@ import {store_product, actions, store} from "../store"
 import {withRouter} from "react-router-dom";
 import {connect} from "unistore/react";
 import axios from 'axios'
-import {Container, Spinner, Row, Col, Form, Button, ListGroup, Image} from 'react-bootstrap';
+import {Container, Row, Col, Form, Button, ListGroup, Image} from 'react-bootstrap';
 import NavigationBar from "../components/navBar"
 
 import  { Redirect } from 'react-router-dom'
@@ -43,7 +43,7 @@ class AdminToUser extends React.Component{
     checkLogin=()=>{
         if (localStorage.getItem("isLogin")=== null){
             alert("You cannot access this page!")
-            this.props.history.push("/payments")
+            this.props.history.push("/Payments")
 
         }
     }
@@ -67,7 +67,7 @@ class AdminToUser extends React.Component{
                 .then((response)=>{
                 store.setState({isLoading:false})    
                 alert("Payment Status Succesfully Updated")
-                this.props.history.push("/DashboardHome")
+                this.props.history.push("/payments")
                                 
                 })
                 .catch((error)=>alert(error))    
@@ -87,6 +87,7 @@ class AdminToUser extends React.Component{
             store.setState({new_payment_ss:new_barbuk}) 
             if(listCostumer.tipe==="Premium" || listCostumer.user_id != localStorage.getItem("id_user")){
                 this.checkAdmin()
+                
            
             }
         }else if (this.props.listUser.length === 0){
@@ -125,7 +126,7 @@ class AdminToUser extends React.Component{
                     </Form.Group>
                     <Button variant="outline-info" type="submit" onClick={() => this.updateUserPayment()}>
                     Update</Button>
-                    {this.props.isLoading?<Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>:<div>Done</div>}
+            
                   </Form>
 
                   </Col>
