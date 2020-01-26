@@ -25,7 +25,7 @@ class AdminToUser extends React.Component{
                         store.setState({listUser:response.data.bukti_pembayaran.replace("b","")})
                         store.setState({listUser:this.props.listUser.replace(/'/g,"")})    
                     }else{
-                        console.log("null payment evidence")
+                        console.log("null payment evidence!")
                     }
                     store.setState({details_cart:response.data})
                     
