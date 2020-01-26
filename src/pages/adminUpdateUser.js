@@ -11,7 +11,7 @@ import  { Redirect } from 'react-router-dom'
 
 class AdminToUser extends React.Component{
 
-    renderAgain = async ()=>{
+    componentDidMount = async ()=>{
             const active_item=this.props.active_cart_id
             const req = {method: "get",
                     url: `https://gundam-woka.my.id/shop/confirm/${active_item}`,
@@ -21,7 +21,7 @@ class AdminToUser extends React.Component{
                 await axios(req)
                 .then((response)=>{
                     if (response.data.bukti_pembayaran !== null){
-                      
+                        store.setState({isLoading:true})
                         store.setState({listUser:response.data.bukti_pembayaran.replace("b","")})
                         store.setState({listUser:this.props.listUser.replace(/'/g,"")})    
                     }else{
@@ -67,7 +67,7 @@ class AdminToUser extends React.Component{
                 .then((response)=>{
                 store.setState({isLoading:false})    
                 alert("Payment Status Succesfully Updated")
-                this.props.history.push("/Payments")
+                this.props.history.push("/DashboardHome")
                                 
                 })
                 .catch((error)=>alert(error))    
@@ -75,7 +75,7 @@ class AdminToUser extends React.Component{
 
 
     render(){
-        this.renderAgain()
+        // this.renderAgain()
      
         if (this.props.listUser.length !== 0){
            

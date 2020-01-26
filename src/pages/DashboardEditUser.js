@@ -66,7 +66,8 @@ class AdminToUser extends React.Component{
                             };
                 await axios(req)
                 .then((response)=>{
-                alert("Product Successfully Updated")
+                alert("Data Successfully Updated")
+                store.setState({isLoading:false})
                 this.props.history.push("/Dashboard")
                                 
                 })
@@ -116,4 +117,4 @@ class AdminToUser extends React.Component{
     }
 }
 
-export default connect("listUserProduct, active_cart_id",actions)(withRouter(AdminToUser))
+export default connect("listUserProduct, isLoading, active_cart_id",actions)(withRouter(AdminToUser))
