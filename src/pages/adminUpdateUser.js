@@ -20,7 +20,7 @@ class AdminToUser extends React.Component{
                 };
                 await axios(req)
                 .then((response)=>{
-                    if (response.data.bukti_pembayaran !== "b'AAAAAAAAAAAAAA=='"){
+                    if (response.data.bukti_pembayaran !== null){
                         console.log("KOK MAsUK", response.data.bukti_pembayaran)
                         store.setState({listUser:response.data.bukti_pembayaran.replace("b","")})
                         store.setState({listUser:this.props.listUser.replace(/'/g,"")})    
